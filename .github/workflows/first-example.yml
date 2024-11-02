@@ -8,12 +8,14 @@ jobs:
         steps:
         - name: checkout repo
           uses: actions/checkout@v4
-          
-        - name: welcome message
-          run: echo "my first job"
 
-        - name: list the files in this repo
-          run: ls
+        - name: my first job 
+          run: |
+                echo "my first job is awesome" > file.txt
+                mkdir myfolder
+                mv file.txt myfolder
+                cd myfolder
+                cat file.txt
+                ls -ltra
 
-        - name: read file
-          run: cat README.md
+

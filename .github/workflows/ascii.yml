@@ -1,0 +1,20 @@
+name: generate ascii file
+
+on: push
+
+jobs:
+    ascii-jobs:
+        runs-on: ubuntu-latest
+        steps:
+        - name: repo checkout
+          uses: actions/checkout@v4
+
+        - name: install ascii libraries
+          run: sudo apt-get install cowsay -y
+
+        - name: execute cowsay cmd
+          run: cowsay -f dragon "I spit fire, run now" > dragon.txt
+
+        - name: list files
+          run: ls -ltra
+
